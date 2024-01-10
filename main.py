@@ -1,21 +1,24 @@
+#importing tkinter module
 from tkinter import *
 
+#define root 
 root = Tk() 
 root.resizable(0, 0)
 root.title("Calculator By Abdullah Fahim")
 
-
+#define button click
 def btn_click(item):
     global expression
     expression = expression + str(item)
     input_text.set(expression)
 
+#define clear button
 def bt_clear(): 
     global expression 
     expression = "" 
     input_text.set("")
  
- 
+#define equal button 
 def bt_equal():
     global expression
     result = str(eval(expression))
