@@ -4,7 +4,7 @@ from tkinter import *
 #define root 
 root = Tk() 
 root.resizable(0, 0)
-root.title("Calculator By Abdullah Fahim")
+root.title("Calculator By Abdullah Fahim!")
 
 #define button click
 def btn_click(item):
