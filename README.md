@@ -21,7 +21,7 @@ This project is a simple calculator implemented in Python using the Tkinter libr
 
 Here's a screenshot of the calculator interface:
 
-![Calculator Interface](calculator_interface.png)
+![Calculator Interface](https://github.com/abdullahfahim2/Calculator/blob/main/Screenshot%202024-03-17%20191142.png)
 
 ## Dependencies
 
