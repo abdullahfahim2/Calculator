@@ -43,5 +43,3 @@ Contributions are welcome! If you'd like to contribute to this project, you can:
 ## Author
 
 - [Md Abdullah Al Fahim](https://github.com/abdullahfahim2)
-
-Feel free to customize the README content according to your preferences. Once you've updated the content, save it in your GitHub repository.
