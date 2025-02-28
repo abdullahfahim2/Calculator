@@ -1,92 +1,153 @@
-#importing tkinter module
-from tkinter import *
+import tkinter as tk
 
-#define root 
-root = Tk() 
-root.resizable(0, 0)
-root.title("Calculator By Abdullah Fahim!")
+# Colors and Fonts
+light_gray = "#F5F5F5"
+label_color = "#25265E"
+white = "#FFFFFF"
+light_blue = "#D1E5F4"
+off_white = "#F8FAFF"
+digit_font = ("Arial", 24, "bold")
+default_font = ("Arial", 20)
+s_font = ("Arial", 16)
+l_font = ("Arial", 40)
+op_color = "#FF9913"
+red = "#FF474C"
+light = "#666362"
 
-#define button click
-def btn_click(item):
-    global expression
-    expression = expression + str(item)
-    input_text.set(expression)
 
-#define clear button
-def bt_clear(): 
-    global expression 
-    expression = "" 
-    input_text.set("")
- 
-#define equal button 
-def bt_equal():
-    global expression
-    result = str(eval(expression))
-    input_text.set(result)
-    expression = ""
- 
-expression = ""
- 
-input_text = StringVar()
- 
- 
-input_frame = Frame(root, width=500, height=500, bd=0, highlightbackground="black", highlightcolor="black", highlightthickness=2)
- 
-input_frame.pack(side=TOP)
+total_expression = ""
+current_expression = ""
 
- 
-input_field = Entry(input_frame, font=('arial', 18, 'bold'), textvariable=input_text, width=50, bg="#eee", bd=0, justify=RIGHT)
- 
-input_field.grid(row=0, column=0)
- 
-input_field.pack(ipady=10)
 
-btns_frame = Frame(root, width=312, height=272.5, bg="grey")
- 
-btns_frame.pack()
- 
-# first row
- 
-clear = Button(btns_frame, text = "C", fg = "black", width = 32, height = 3, bd = 0, bg = "#eee", cursor = "hand2", command = lambda: bt_clear()).grid(row = 0, column = 0, columnspan = 3, padx = 1, pady = 1)
- 
-divide = Button(btns_frame, text = "/", fg = "black", width = 10, height = 3, bd = 0, bg = "#eee", cursor = "hand2", command = lambda: btn_click("/")).grid(row = 0, column = 3, padx = 1, pady = 1)
- 
-# second row
- 
-seven = Button(btns_frame, text = "7", fg = "black", width = 10, height = 3, bd = 0, bg = "#fff", cursor = "hand2", command = lambda: btn_click(7)).grid(row = 1, column = 0, padx = 1, pady = 1)
- 
-eight = Button(btns_frame, text = "8", fg = "black", width = 10, height = 3, bd = 0, bg = "#fff", cursor = "hand2", command = lambda: btn_click(8)).grid(row = 1, column = 1, padx = 1, pady = 1)
- 
-nine = Button(btns_frame, text = "9", fg = "black", width = 10, height = 3, bd = 0, bg = "#fff", cursor = "hand2", command = lambda: btn_click(9)).grid(row = 1, column = 2, padx = 1, pady = 1)
- 
-multiply = Button(btns_frame, text = "*", fg = "black", width = 10, height = 3, bd = 0, bg = "#eee", cursor = "hand2", command = lambda: btn_click("*")).grid(row = 1, column = 3, padx = 1, pady = 1)
- 
-# third row
- 
-four = Button(btns_frame, text = "4", fg = "black", width = 10, height = 3, bd = 0, bg = "#fff", cursor = "hand2", command = lambda: btn_click(4)).grid(row = 2, column = 0, padx = 1, pady = 1)
- 
-five = Button(btns_frame, text = "5", fg = "black", width = 10, height = 3, bd = 0, bg = "#fff", cursor = "hand2", command = lambda: btn_click(5)).grid(row = 2, column = 1, padx = 1, pady = 1)
- 
-six = Button(btns_frame, text = "6", fg = "black", width = 10, height = 3, bd = 0, bg = "#fff", cursor = "hand2", command = lambda: btn_click(6)).grid(row = 2, column = 2, padx = 1, pady = 1)
- 
-minus = Button(btns_frame, text = "-", fg = "black", width = 10, height = 3, bd = 0, bg = "#eee", cursor = "hand2", command = lambda: btn_click("-")).grid(row = 2, column = 3, padx = 1, pady = 1)
- 
-# fourth row
- 
-one = Button(btns_frame, text = "1", fg = "black", width = 10, height = 3, bd = 0, bg = "#fff", cursor = "hand2", command = lambda: btn_click(1)).grid(row = 3, column = 0, padx = 1, pady = 1)
- 
-two = Button(btns_frame, text = "2", fg = "black", width = 10, height = 3, bd = 0, bg = "#fff", cursor = "hand2", command = lambda: btn_click(2)).grid(row = 3, column = 1, padx = 1, pady = 1)
- 
-three = Button(btns_frame, text = "3", fg = "black", width = 10, height = 3, bd = 0, bg = "#fff", cursor = "hand2", command = lambda: btn_click(3)).grid(row = 3, column = 2, padx = 1, pady = 1)
- 
-plus = Button(btns_frame, text = "+", fg = "black", width = 10, height = 3, bd = 0, bg = "#eee", cursor = "hand2", command = lambda: btn_click("+")).grid(row = 3, column = 3, padx = 1, pady = 1)
- 
-# fourth row
- 
-zero = Button(btns_frame, text = "0", fg = "black", width = 21, height = 3, bd = 0, bg = "#fff", cursor = "hand2", command = lambda: btn_click(0)).grid(row = 4, column = 0, columnspan = 2, padx = 1, pady = 1)
- 
-point = Button(btns_frame, text = ".", fg = "black", width = 10, height = 3, bd = 0, bg = "#eee", cursor = "hand2", command = lambda: btn_click(".")).grid(row = 4, column = 2, padx = 1, pady = 1)
- 
-equals = Button(btns_frame, text = "=", fg = "black", width = 10, height = 3, bd = 0, bg = "#eee", cursor = "hand2", command = lambda: bt_equal()).grid(row = 4, column = 3, padx = 1, pady = 1)
- 
-root.mainloop()
+window = tk.Tk()
+window.geometry("375x667")
+window.resizable(0, 0)
+window.title("Calculator By Md Abdullah Al Fahim")
+
+
+def update_total_label():
+    global total_expression
+    expression = total_expression
+    total_label.config(text=expression)
+
+def update_label():
+    label.config(text=current_expression)
+
+
+def add_to_expression(value):
+    global current_expression
+    current_expression += str(value)
+    update_label()
+
+
+def append_operator(operator):
+    global total_expression, current_expression
+    total_expression += current_expression + operator
+    current_expression = ""
+    update_total_label()
+    update_label()
+
+
+def evaluate():
+    global total_expression, current_expression
+    total_expression += current_expression
+    update_total_label()
+    try:
+        current_expression = str(eval(total_expression))
+        total_expression = ""
+    except:
+        current_expression = "Error!"
+    update_label()
+
+
+def clear():
+    global total_expression, current_expression
+    total_expression = ""
+    current_expression = ""
+    update_label()
+    update_total_label()
+
+
+def square():
+    global current_expression
+    current_expression = str(eval(f"{current_expression}**2"))
+    update_label()
+
+
+def sqrt():
+    global current_expression
+    current_expression = str(eval(f"{current_expression}**0.5"))
+    update_label()
+
+def modulus():
+    global current_expression
+    current_expression = str(eval(f"({current_expression}/100)"))
+    update_label()
+
+# Create frame
+display_frame = tk.Frame(window, height=221, bg=light_gray)
+display_frame.pack(expand=True, fill="both")
+
+buttons_frame = tk.Frame(window)
+buttons_frame.pack(expand=True, fill="both")
+
+# Create label
+total_label = tk.Label(display_frame, text=total_expression, anchor=tk.E, bg=light_gray, fg=label_color, padx=24, font=s_font)
+total_label.pack(expand=True, fill="both")
+
+label = tk.Label(display_frame, text=current_expression, anchor=tk.E, bg=light_gray, fg=label_color, padx=24, font=l_font)
+label.pack(expand=True, fill="both")
+
+# Button layout
+digits = {
+    7: (1, 1), 8: (1, 2), 9: (1, 3),
+    4: (2, 1), 5: (2, 2), 6: (2, 3),
+    1: (3, 1), 2: (3, 2), 3: (3, 3),
+    '.': (4, 1), 0: (4, 2)
+}
+operations = {
+    "/": "\u00F7",
+    "*": "\u00D7",
+    "-": "-",
+    "+ ": "+"
+}
+
+for digit, grid_value in digits.items():
+    button = tk.Button(buttons_frame, text=str(digit), bg=white, fg=label_color, font=digit_font, borderwidth=0, command=lambda x=digit: add_to_expression(x))
+    button.grid(row=grid_value[0], column=grid_value[1], sticky=tk.NSEW)
+
+i = 0
+for operator, symbol in operations.items():
+    button = tk.Button(buttons_frame, text=symbol, bg=op_color, fg=label_color, font=default_font, borderwidth=0, command=lambda x=operator: append_operator(x))
+    button.grid(row=i, column=4, sticky=tk.NSEW)
+    i += 1
+
+clear_button = tk.Button(buttons_frame, text="C", bg=red, fg=label_color, font=default_font, borderwidth=0, command=clear)
+clear_button.grid(row=0, column=1, sticky=tk.NSEW)
+
+square_button = tk.Button(buttons_frame, text="x\u00b2", bg=op_color, fg=label_color, font=default_font, borderwidth=0, command=square)
+square_button.grid(row=0, column=2, sticky=tk.NSEW)
+
+sqrt_button = tk.Button(buttons_frame, text="\u221ax", bg=op_color, fg=label_color, font=default_font, borderwidth=0, command=sqrt)
+sqrt_button.grid(row=0, column=3, sticky=tk.NSEW)
+
+modulus_button = tk.Button(buttons_frame, text="%", bg=light_blue, fg=label_color, font=default_font, borderwidth=0, command=modulus)
+modulus_button.grid(row=4, column=3, sticky=tk.NSEW)
+
+equals_button = tk.Button(buttons_frame, text="=", bg=light_blue, fg=label_color, font=default_font, borderwidth=0, command=evaluate)
+equals_button.grid(row=4, column=4, sticky=tk.NSEW)
+
+buttons_frame.rowconfigure(0, weight=1)
+for x in range(1, 5):
+    buttons_frame.rowconfigure(x, weight=1)
+    buttons_frame.columnconfigure(x, weight=1)
+
+def bind_keys():
+    window.bind("<Return>", lambda event: evaluate())
+    for key in digits:
+        window.bind(str(key), lambda event, digit=key: add_to_expression(digit))
+    for key in operations:
+        window.bind(str(key), lambda event, operator=key: append_operator(operator))
+bind_keys()
+
+window.mainloop()
